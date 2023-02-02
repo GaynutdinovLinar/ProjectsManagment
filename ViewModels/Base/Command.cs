@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace ProjectsManagment.VVM.Base
+namespace ViewModels.Base
 {
     public class Command : ICommand
     {

@@ -1,7 +1,6 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
@@ -13,13 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MVVM.Navigation.Service\MVVM.Navigation.Service.csproj" />
-    <ProjectReference Include="..\ViewModels\ViewModels.csproj" />
-    <ProjectReference Include="..\Views\Views.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Styles\" />
-    <Folder Include="Controls\" />
   </ItemGroup>
 
 </Project>

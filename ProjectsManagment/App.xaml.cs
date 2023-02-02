@@ -1,5 +1,6 @@
-﻿using ProjectsManagment.VVM.MainWindow;
+﻿using System;
 using System.Windows;
+using IoCViews = Views.IoC;
 
 namespace ProjectsManagment
 {
@@ -12,7 +13,9 @@ namespace ProjectsManagment
         {
             IoC.Init();
 
-            new MainWindow().Show();
+            var window = IoCViews.MainWindow;
+            window.Show();
+
         }
     }
 }

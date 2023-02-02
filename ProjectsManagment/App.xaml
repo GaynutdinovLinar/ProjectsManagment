@@ -2,8 +2,10 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ProjectsManagment"
+             xmlns:views="clr-namespace:Views;assembly=Views"
              Startup="Application_Startup">
     <Application.Resources>
         <local:IoC x:Key="IoC"/>
+        <views:IoC x:Key="IoCViews"/>
     </Application.Resources>
 </Application>
