@@ -2,7 +2,7 @@
 using MVVM.Navigation.Service;
 using System;
 using System.Collections.Generic;
-using ViewModels;
+using ViewModels.ViewModels;
 using Views.Windows;
 
 namespace Views

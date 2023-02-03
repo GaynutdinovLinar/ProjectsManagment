@@ -1,12 +1,42 @@
 ﻿<Window x:Class="Views.Windows.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Views.Windows"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        DataContext="{Binding MainWindowVM, Source={StaticResource IoCViews}}"
+        Title="Управление проектами" Height="450" Width="800" 
+        WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        FontFamily="Arial" FontSize="10" WindowStyle="None">
+
+    <Window.Style>
+        <Style>
+            <Setter Property="WindowChrome.WindowChrome">
+                <Setter.Value>
+                    <WindowChrome  
+                        GlassFrameThickness="10"
+                        ResizeBorderThickness="5"
+                        CaptionHeight="32"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Style>
+
+    <DockPanel>
+        <Grid DockPanel.Dock="Left" Width="150" Background="White">
+            <DockPanel Margin="0,10">
+                <Grid Height="30" DockPanel.Dock="Bottom">
+                    <Button Content="Добавить проект" Command=""
+                            Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+                <StackPanel>
+                    <TextBlock Text="Проекты" Margin="20,0,0,0"/>
+                    <ItemsControl>
+                        
+                    </ItemsControl>
+                </StackPanel>
+            </DockPanel>
+        </Grid>
         
-    </Grid>
+        <Grid>
+            
+        </Grid>
+    </DockPanel>
 </Window>

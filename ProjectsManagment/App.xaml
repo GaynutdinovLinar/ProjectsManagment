@@ -5,7 +5,15 @@
              xmlns:views="clr-namespace:Views;assembly=Views"
              Startup="Application_Startup">
     <Application.Resources>
-        <local:IoC x:Key="IoC"/>
-        <views:IoC x:Key="IoCViews"/>
+        <ResourceDictionary>
+            <local:IoC x:Key="IoC"/>
+            <views:IoC x:Key="IoCViews"/>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Views;component/Themes/LigthTheme.xaml"/>
+                <ResourceDictionary Source="/Views;component/Assets/Icons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
