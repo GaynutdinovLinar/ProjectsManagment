@@ -7,9 +7,13 @@ using System.Windows.Controls;
 
 namespace MVVM.Navigation.Service
 {
-    public class FrameService<T> : INotifyPropertyChanged
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T">Тип View</typeparam>
+    public class PagesContainer<T> : INotifyPropertyChanged
     {
-        public FrameService()
+        public PagesContainer()
         {
             OpennedPages = new ObservableCollection<VVM>();
         }

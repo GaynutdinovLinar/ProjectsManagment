@@ -18,7 +18,7 @@ namespace ProjectsManagment
 
             #region Services
 
-            services.AddSingleton<VVMService>();
+            services.AddSingleton<NavigationService>();
             services.AddSingleton<LocalSettingApp>();
 
             #endregion

@@ -15,7 +15,7 @@ namespace Views
 
         public static void Init(ServiceCollection services)
         {
-            VVMService.VMDictionary = new Dictionary<Type, ViewActions>()
+            NavigationService.VMDictionary = new Dictionary<Type, ViewActions>()
             {
                 //{ typeof(PageVM), VVMService.StandartPage(() => IoCViews.Page1, () => IoCViews.MainWindowMainFrame) }
             };
@@ -34,7 +34,7 @@ namespace Views
 
             #region Frames
 
-            services.AddSingleton<FrameService<MainWindowVM>>();
+            services.AddSingleton<PagesContainer<MainWindowVM>>();
 
             #endregion
         }
@@ -53,7 +53,7 @@ namespace Views
 
         #region Frames
 
-        public static FrameService<MainWindowVM> MainWindowMainFrame => _provider.GetRequiredService<FrameService<MainWindowVM>>();
+        public static PagesContainer<MainWindowVM> MainWindowMainFrame => _provider.GetRequiredService<PagesContainer<MainWindowVM>>();
 
         #endregion
     }

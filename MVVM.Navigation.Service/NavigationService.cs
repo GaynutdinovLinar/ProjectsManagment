@@ -8,7 +8,7 @@ namespace MVVM.Navigation.Service
     /// <summary>
     /// Класс содержащий базовую логику взаимодействия с View и ViewModel
     /// </summary>
-    public class VVMService
+    public class NavigationService
     {
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace MVVM.Navigation.Service
             return VMDictionary[typeof(T)].GetView?.Invoke();
         }
 
-        public static ViewActions StandartPage<T>(Func<Page> GetPage, Func<FrameService<T>> GetFrame)
+        public static ViewActions StandartPage<T>(Func<Page> GetPage, Func<PagesContainer<T>> GetFrame)
         {
             return new ViewActions(
                   () => GetPage?.Invoke(),
