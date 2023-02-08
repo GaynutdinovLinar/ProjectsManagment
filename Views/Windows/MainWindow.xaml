@@ -1,10 +1,13 @@
 ﻿<Window x:Class="Views.Windows.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uc="clr-namespace:Views.Controls"
+        
+        Name="Window"
         DataContext="{Binding MainWindowVM, Source={StaticResource IoCViews}}"
         Title="Управление проектами" Height="450" Width="800" 
         WindowStartupLocation="CenterScreen" WindowState="Maximized"
-        FontFamily="Arial" FontSize="10" WindowStyle="None">
+        FontSize="10" WindowStyle="None">
 
     <Window.Style>
         <Style>
@@ -19,24 +22,88 @@
         </Style>
     </Window.Style>
 
-    <DockPanel>
-        <Grid DockPanel.Dock="Left" Width="150" Background="White">
-            <DockPanel Margin="0,10">
-                <Grid Height="30" DockPanel.Dock="Bottom">
-                    <Button Content="Добавить проект" Command=""
+    <Grid>
+        <DockPanel>
+            <Grid DockPanel.Dock="Left" Width="150" Background="{DynamicResource BlueBrush}">
+                <DockPanel Margin="0,10">
+                    <Grid Height="30" DockPanel.Dock="Bottom">
+                        <Button Content="Добавить проект" Command=""
                             Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </Grid>
-                <StackPanel>
-                    <TextBlock Text="Проекты" Margin="20,0,0,0"/>
-                    <ItemsControl>
-                        
-                    </ItemsControl>
-                </StackPanel>
-            </DockPanel>
-        </Grid>
-        
-        <Grid>
+                    </Grid>
+                    <StackPanel>
+                        <!--<TextBlock Text="Управление проектами" Margin="20,0,0,0" Foreground="{DynamicResource MainBackgroundBrush}" FontWeight="Medium"
+                                   FontFamily="{DynamicResource SecondFont}" FontSize="{DynamicResource RegularFont}"/>-->
+                        <ItemsControl>
+
+                        </ItemsControl>
+                    </StackPanel>
+                </DockPanel>
+            </Grid>
+
+            <Grid>
+                <DockPanel>
+                    <Grid DockPanel.Dock="Top" Height="26" Background="{DynamicResource SecondaryBackgroundBrush}">
+                        <StackPanel Orientation="Horizontal" WindowChrome.IsHitTestVisibleInChrome="True"
+                                HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <uc:DefButton Width="30" Height="26" BorderThickness="0" 
+                                      Background="Transparent" HoverBackground="{DynamicResource LightGrayBrush}"
+                                      Foreground="{DynamicResource SecondaryTextBrush}"
+                                      Icon="{DynamicResource MinimizeIcon}" IconHeight="1.5" IconWidth="10"
+                                      Click="MinimizeButton_Click" Cursor="Hand"/>
+
+                            <uc:DefButton Width="30" Height="26" BorderThickness="0"
+                                      Background="Transparent" HoverBackground="{DynamicResource LightGrayBrush}"
+                                      Foreground="{DynamicResource SecondaryTextBrush}"
+                                      IconHeight="10" IconWidth="10"
+                                      Click="ChangeWindowStateButton_Click">
+                                <uc:DefButton.Style>
+                                    <Style TargetType="uc:DefButton">
+                                        <Setter Property="Icon" Value="{DynamicResource MaximizeIcon}"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=Window, Path=WindowState}" Value="Maximized">
+                                                <Setter Property="Icon" Value="{DynamicResource RestoreIcon}"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </uc:DefButton.Style>
+                            </uc:DefButton>
+
+                            <uc:DefButton Width="30" Height="26" BorderThickness="0"
+                                      Background="Transparent" Foreground="{DynamicResource SecondaryTextBrush}"
+                                      Icon="{DynamicResource CloseIcon}" IconHeight="10" IconWidth="10"
+                                      HoverBackground="Red" HoverForeground="White"
+                                      Click="CloseButton_Click" Cursor="Hand"/>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Background="{DynamicResource MainBackgroundBrush}">
+                        <!--<RadioButton Style="{DynamicResource MenuRadioButton}"/>-->
+
+                        <!--<RadioButton>
+                        <uc:DefButton Content="fsdfds" CornerRadius="10"
+                                  Background="Yellow" Width="100"
+                                  Height="30" BorderBrush="Black"
+                                  Foreground="Black"
+                                  BorderThickness="1"
+                                  FontSize="{StaticResource RegularFont}" Space="10" IconSize="20"
+                                  Icon="{DynamicResource MinimizeIcon}" Cursor="Hand"
+                                  TextVerticalAligment="Center"/>
+                    </RadioButton>-->
+                    </Grid>
+                </DockPanel>
+            </Grid>
+
+            <DockPanel.Style>
+                <Style TargetType="DockPanel">
+                    <Setter Property="Margin" Value="0"/>
+
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=Window, Path=WindowState}" Value="Maximized">
+                            <Setter Property="Margin" Value="5"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DockPanel.Style>
             
-        </Grid>
-    </DockPanel>
+        </DockPanel>
+    </Grid>
 </Window>

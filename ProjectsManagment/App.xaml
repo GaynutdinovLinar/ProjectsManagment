@@ -12,6 +12,8 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Views;component/Themes/LigthTheme.xaml"/>
                 <ResourceDictionary Source="/Views;component/Assets/Icons.xaml"/>
+                <ResourceDictionary Source="/Views;component/Assets/Fonts.xaml"/>
+                <ResourceDictionary Source="/Views;component/Styles/MainStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             
         </ResourceDictionary>

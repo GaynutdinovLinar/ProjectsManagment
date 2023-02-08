@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:uc="clr-namespace:Views.Controls">
+
+    <Style x:Key="MenuRadioButton" TargetType="RadioButton">
+        <Setter Property="Cursor" Value="Hand"/>
+        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <uc:DefButton/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

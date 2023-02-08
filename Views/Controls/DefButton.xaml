@@ -1,0 +1,39 @@
+﻿<Button x:Class="Views.Controls.DefButton"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Cursor="Hand">
+
+    <Button.Template>
+        <ControlTemplate TargetType="Button">
+            <Border x:Name="border" CornerRadius="{Binding CornerRadius}" Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding Foreground}" BorderThickness="{TemplateBinding BorderThickness}"
+                    Height="{TemplateBinding Height}" Width="{TemplateBinding Width}">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}">
+                    <Path x:Name="icon"  Data="{Binding Icon}" Height="{Binding IconHeight}"  Width="{Binding IconWidth}"
+                          Fill="{TemplateBinding Foreground}" Stretch="UniformToFill"/>
+                    <Grid Width="{Binding Space}"/>
+                    <TextBlock x:Name="text" Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}"
+                               FontFamily="{TemplateBinding FontFamily}" VerticalAlignment="{Binding TextVerticalAligment}"/>
+                </StackPanel>
+            </Border>
+
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="border" Property="Background" Value="{Binding HoverBackground}"/>
+                    <Setter TargetName="border" Property="BorderThickness" Value="{Binding HoverForeground}"/>
+                    <Setter TargetName="icon" Property="Fill" Value="{Binding HoverForeground}"/>
+                    <Setter TargetName="text" Property="Foreground" Value="{Binding HoverForeground}"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter TargetName="border" Property="Background" Value="{Binding DisabledBackground}"/>
+                    <Setter TargetName="border" Property="BorderThickness" Value="{Binding DisabledForeground}"/>
+                    <Setter TargetName="icon" Property="Fill" Value="{Binding DisabledForeground}"/>
+                    <Setter TargetName="text" Property="Foreground" Value="{Binding DisabledForeground}"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Button.Template>
+</Button>
