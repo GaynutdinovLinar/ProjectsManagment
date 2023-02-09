@@ -3,12 +3,34 @@
                     xmlns:uc="clr-namespace:Views.Controls">
 
     <Style x:Key="MenuRadioButton" TargetType="RadioButton">
+        <Setter Property="GroupName" Value="MenuItems"/>
+        <Setter Property="Margin" Value="10,0,0,0"/>
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Foreground" Value="{DynamicResource MainBackgroundBrush}"/>
+        <Setter Property="FontFamily" Value="{DynamicResource MainFont}"/>
+        <Setter Property="FontSize" Value="{DynamicResource RegularFont}"/>
         
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate>
-                    <uc:DefButton/>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border x:Name="border" CornerRadius="5,0,0,5" Background="Transparent" Height="40">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="11,0,0,0">
+                            <Path Name="icon" Data="{TemplateBinding Tag}" Fill="{TemplateBinding Foreground}" Stretch="Uniform" Height="20"/>
+                            <TextBlock Name="text" Text="{TemplateBinding Content}" Margin="20,0,0,0" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource LightBlueBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource MainBackgroundBrush}"/>
+                            <Setter TargetName="icon" Property="Fill" Value="{DynamicResource SecondaryTextBrush}"/>
+                            <Setter TargetName="text" Property="Foreground" Value="{DynamicResource SecondaryTextBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

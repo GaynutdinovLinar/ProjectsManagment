@@ -5,7 +5,7 @@
         
         Name="Window"
         DataContext="{Binding MainWindowVM, Source={StaticResource IoCViews}}"
-        Title="Управление проектами" Height="450" Width="800" 
+        Title="Управление проектами" Height="600" Width="1000" 
         WindowStartupLocation="CenterScreen" WindowState="Maximized"
         FontSize="10" WindowStyle="None">
 
@@ -24,20 +24,54 @@
 
     <Grid>
         <DockPanel>
-            <Grid DockPanel.Dock="Left" Width="150" Background="{DynamicResource BlueBrush}">
-                <DockPanel Margin="0,10">
-                    <Grid Height="30" DockPanel.Dock="Bottom">
-                        <Button Content="Добавить проект" Command=""
-                            Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Grid>
-                    <StackPanel>
-                        <!--<TextBlock Text="Управление проектами" Margin="20,0,0,0" Foreground="{DynamicResource MainBackgroundBrush}" FontWeight="Medium"
-                                   FontFamily="{DynamicResource SecondFont}" FontSize="{DynamicResource RegularFont}"/>-->
-                        <ItemsControl>
+            <Grid DockPanel.Dock="Left">
+                <Grid x:Name="MenuGrid" Width="60" Background="{DynamicResource BlueBrush}" Margin="0,0,10,0">
+                    <DockPanel Margin="0,10">
+                        <StackPanel DockPanel.Dock="Top">
+                            <ToggleButton IsChecked="False" WindowChrome.IsHitTestVisibleInChrome="True" Cursor="Hand">
+                                <ToggleButton.Template>
+                                    <ControlTemplate>
+                                        <Border Name="border" CornerRadius="5" Height="40" Width="40" Background="Transparent">
+                                            <Path Data="{DynamicResource MenuIcon}" Stretch="UniformToFill" Fill="{DynamicResource MainBackgroundBrush}"
+                                              Height="15" Width="20"/>
+                                        </Border>
 
-                        </ItemsControl>
-                    </StackPanel>
-                </DockPanel>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="border" Property="Background" Value="{DynamicResource LightBlueBrush}"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+
+                                <ToggleButton.Triggers>
+                                    <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                        <BeginStoryboard>
+                                            <Storyboard x:Name="HideStackPanel">
+                                                <DoubleAnimation Storyboard.TargetName="MenuGrid" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="200" To="60" Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                        <BeginStoryboard>
+                                            <Storyboard x:Name="ShowStackPanel">
+                                                <DoubleAnimation Storyboard.TargetName="MenuGrid" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="60" To="200" Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </ToggleButton.Triggers>
+                            </ToggleButton>
+                            <Grid Height="20"/>
+                            <RadioButton Style="{DynamicResource MenuRadioButton}" Content="Проекты" Tag="{DynamicResource ProjectMenuIcon}"/>
+                        </StackPanel>
+                    </DockPanel>
+
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="20" Direction="180" Color="Black" Opacity="0.6"
+                              RenderingBias="Quality" ShadowDepth="1"/>
+                    </Grid.Effect>
+                </Grid>
+                
             </Grid>
 
             <Grid>
@@ -55,7 +89,7 @@
                                       Background="Transparent" HoverBackground="{DynamicResource LightGrayBrush}"
                                       Foreground="{DynamicResource SecondaryTextBrush}"
                                       IconHeight="10" IconWidth="10"
-                                      Click="ChangeWindowStateButton_Click">
+                                      Click="ChangeWindowStateButton_Click" Cursor="Hand">
                                 <uc:DefButton.Style>
                                     <Style TargetType="uc:DefButton">
                                         <Setter Property="Icon" Value="{DynamicResource MaximizeIcon}"/>
@@ -76,18 +110,7 @@
                         </StackPanel>
                     </Grid>
                     <Grid Background="{DynamicResource MainBackgroundBrush}">
-                        <!--<RadioButton Style="{DynamicResource MenuRadioButton}"/>-->
 
-                        <!--<RadioButton>
-                        <uc:DefButton Content="fsdfds" CornerRadius="10"
-                                  Background="Yellow" Width="100"
-                                  Height="30" BorderBrush="Black"
-                                  Foreground="Black"
-                                  BorderThickness="1"
-                                  FontSize="{StaticResource RegularFont}" Space="10" IconSize="20"
-                                  Icon="{DynamicResource MinimizeIcon}" Cursor="Hand"
-                                  TextVerticalAligment="Center"/>
-                    </RadioButton>-->
                     </Grid>
                 </DockPanel>
             </Grid>

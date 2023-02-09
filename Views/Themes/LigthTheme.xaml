@@ -4,6 +4,9 @@
     <Color x:Key="BlueColor">#59afff</Color>
     <SolidColorBrush x:Key = "BlueBrush"  Color = "{DynamicResource BlueColor}"/>
 
+    <Color x:Key="LightBlueColor">#85c4ff</Color>
+    <SolidColorBrush x:Key = "LightBlueBrush"  Color = "{DynamicResource LightBlueColor}"/>
+
     <Color x:Key="MainBackgroundColor">#f7f7f7</Color>
     <SolidColorBrush x:Key = "MainBackgroundBrush"  Color = "{DynamicResource MainBackgroundColor}"/>
 
@@ -13,7 +16,7 @@
     <Color x:Key="MainTextColor">#141414</Color>
     <SolidColorBrush x:Key = "MainTextBrush"  Color = "{DynamicResource MainTextColor}"/>
 
-    <Color x:Key="SecondaryTextColor">#242424</Color>
+    <Color x:Key="SecondaryTextColor">#383838</Color>
     <SolidColorBrush x:Key = "SecondaryTextBrush"  Color = "{DynamicResource SecondaryTextColor}"/>
 
     <Color x:Key="LightGrayColor">#d6d6d6</Color>
