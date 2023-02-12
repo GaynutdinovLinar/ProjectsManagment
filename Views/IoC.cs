@@ -3,6 +3,7 @@ using MVVM.Navigation.Service;
 using System;
 using System.Collections.Generic;
 using ViewModels.ViewModels;
+using Views.Pages;
 using Views.Windows;
 
 namespace Views
@@ -17,18 +18,14 @@ namespace Views
         {
             NavigationService.VMDictionary = new Dictionary<Type, ViewActions>()
             {
-                //{ typeof(PageVM), VVMService.StandartPage(() => IoCViews.Page1, () => IoCViews.MainWindowMainFrame) }
+                { typeof(ProjectPageVM), NavigationService.StandartPage(() => ProjectsPage, () => MainWindowPagesContainer) }
             };
 
             #region Views
 
             services.AddSingleton<MainWindow>();
 
-            #endregion
-
-            #region ViewModels
-
-            services.AddSingleton<MainWindowVM>();
+            services.AddSingleton<ProjectsPage>();
 
             #endregion
 
@@ -43,17 +40,13 @@ namespace Views
 
         public static MainWindow MainWindow => _provider.GetRequiredService<MainWindow>();
 
-        #endregion
-
-        #region ViewModels
-
-        public static MainWindowVM MainWindowVM => _provider.GetRequiredService<MainWindowVM>();
+        public static ProjectsPage ProjectsPage => _provider.GetRequiredService<ProjectsPage>();
 
         #endregion
 
         #region Frames
 
-        public static PagesContainer<MainWindowVM> MainWindowMainFrame => _provider.GetRequiredService<PagesContainer<MainWindowVM>>();
+        public static PagesContainer<MainWindowVM> MainWindowPagesContainer => _provider.GetRequiredService<PagesContainer<MainWindowVM>>();
 
         #endregion
     }

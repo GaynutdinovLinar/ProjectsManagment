@@ -1,12 +1,17 @@
-﻿namespace ViewModels.ViewModels
+﻿using MVVM.Navigation.Service;
+
+namespace ViewModels.ViewModels
 {
     public class MainWindowVM : ViewModel
     {
-        public MainWindowVM()
+        public MainWindowVM(NavigationService navigationService)
         {
+            _navigationService = navigationService;
         }
 
         #region Fields
+
+        private readonly NavigationService _navigationService;
 
         #endregion
 
@@ -19,6 +24,12 @@
         #endregion
 
         #region Commands
+
+        private Command _openProjectsPage;
+        public Command OpenProjectsPage => GetOrCreateCommand(ref _openProjectsPage, obj =>
+        {
+            _navigationService.CreateViewAndGetViewModel<ProjectPageVM>();
+        });
 
         #endregion
     }

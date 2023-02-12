@@ -4,7 +4,7 @@
         xmlns:uc="clr-namespace:Views.Controls"
         
         Name="Window"
-        DataContext="{Binding MainWindowVM, Source={StaticResource IoCViews}}"
+        DataContext="{Binding MainWindowVM, Source={StaticResource IoCViewModels}}"
         Title="Управление проектами" Height="600" Width="1000" 
         WindowStartupLocation="CenterScreen" WindowState="Maximized"
         FontSize="10" WindowStyle="None">
@@ -62,7 +62,9 @@
                                 </ToggleButton.Triggers>
                             </ToggleButton>
                             <Grid Height="20"/>
-                            <RadioButton Style="{DynamicResource MenuRadioButton}" Content="Проекты" Tag="{DynamicResource ProjectMenuIcon}"/>
+                            <RadioButton Style="{DynamicResource MenuRadioButton}" Content="Проекты" Tag="{DynamicResource ProjectMenuIcon}" Cursor="Hand"
+                                         Command="{Binding OpenProjectsPage}"/>
+                            <RadioButton Style="{DynamicResource MenuRadioButton}" Content="Команды" Tag="{DynamicResource CommandMenuIcon}" Cursor="Hand"/>
                         </StackPanel>
                     </DockPanel>
 
@@ -110,7 +112,9 @@
                         </StackPanel>
                     </Grid>
                     <Grid Background="{DynamicResource MainBackgroundBrush}">
-
+                        <Frame NavigationUIVisibility="Hidden" 
+                               DataContext="{Binding MainWindowPagesContainer, Source={StaticResource IoCViews}}"
+                               Content="{Binding CurrentPage}"/>
                     </Grid>
                 </DockPanel>
             </Grid>

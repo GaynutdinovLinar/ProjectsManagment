@@ -23,13 +23,13 @@
             <ControlTemplate.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter TargetName="border" Property="Background" Value="{Binding HoverBackground}"/>
-                    <Setter TargetName="border" Property="BorderThickness" Value="{Binding HoverForeground}"/>
+                    <Setter TargetName="border" Property="BorderBrush" Value="{Binding HoverForeground}"/>
                     <Setter TargetName="icon" Property="Fill" Value="{Binding HoverForeground}"/>
                     <Setter TargetName="text" Property="Foreground" Value="{Binding HoverForeground}"/>
                 </Trigger>
                 <Trigger Property="IsEnabled" Value="False">
                     <Setter TargetName="border" Property="Background" Value="{Binding DisabledBackground}"/>
-                    <Setter TargetName="border" Property="BorderThickness" Value="{Binding DisabledForeground}"/>
+                    <Setter TargetName="border" Property="BorderBrush" Value="{Binding DisabledForeground}"/>
                     <Setter TargetName="icon" Property="Fill" Value="{Binding DisabledForeground}"/>
                     <Setter TargetName="text" Property="Foreground" Value="{Binding DisabledForeground}"/>
                 </Trigger>

@@ -27,8 +27,8 @@
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="border" Property="Background" Value="{DynamicResource MainBackgroundBrush}"/>
-                            <Setter TargetName="icon" Property="Fill" Value="{DynamicResource SecondaryTextBrush}"/>
-                            <Setter TargetName="text" Property="Foreground" Value="{DynamicResource SecondaryTextBrush}"/>
+                            <Setter TargetName="icon" Property="Fill" Value="{DynamicResource BlueBrush}"/>
+                            <Setter TargetName="text" Property="Foreground" Value="{DynamicResource BlueBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

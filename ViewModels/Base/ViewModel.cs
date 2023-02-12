@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace ViewModels.Base
@@ -20,6 +21,14 @@ namespace ViewModels.Base
             field = value;
             OnPropertyChanged(nameProperty);
             return true;
+        }
+
+        public Command GetOrCreateCommand(ref Command field, Action<object> execute, Func<object?, bool> canExecute = null)
+        {
+            if (field is null)
+                field = new Command(execute, canExecute);
+
+            return field;
         }
     }
 }

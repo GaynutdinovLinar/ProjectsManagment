@@ -3,11 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ProjectsManagment"
              xmlns:views="clr-namespace:Views;assembly=Views"
+             xmlns:viewModels="clr-namespace:ViewModels;assembly=ViewModels"
              Startup="Application_Startup">
     <Application.Resources>
         <ResourceDictionary>
             <local:IoC x:Key="IoC"/>
             <views:IoC x:Key="IoCViews"/>
+            <viewModels:IoC x:Key="IoCViewModels"/>
 
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Views;component/Themes/LigthTheme.xaml"/>
