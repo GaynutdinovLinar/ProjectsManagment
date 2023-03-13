@@ -4,16 +4,16 @@ namespace ViewModels.ViewModels
 {
     public class MainWindowVM : ViewModel
     {
-        public MainWindowVM(NavigationService navigationService)
-        {
-            _navigationService = navigationService;
-        }
-
         #region Fields
 
         private readonly NavigationService _navigationService;
 
         #endregion
+
+        public MainWindowVM(NavigationService navigationService)
+        {
+            _navigationService = navigationService;
+        }
 
         #region Properties
 

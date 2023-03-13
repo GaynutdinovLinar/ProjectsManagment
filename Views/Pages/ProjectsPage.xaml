@@ -9,7 +9,7 @@
       DataContext="{Binding ProjectPageVM, Source={StaticResource IoCViewModels}}"
       Title="Проекты" Background="Transparent">
 
-    <Grid>
+    <Grid >
         
     </Grid>
 </Page>
